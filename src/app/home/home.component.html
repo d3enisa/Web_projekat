@@ -1,0 +1,57 @@
+<div class="hero-section" style="position: relative; height: 80vh; background-image: url('https://cdn.blogo.it/kcjqL-Z-3zV4voAhiw9VesOpO1k=/1280x720/smart/https://www.blogo.it/app/uploads/sites/3/2024/03/stasera-in-tv-the-suicide-squad-missione-suicida-di-james-gunn-su-italia-1-1.jpg'); background-size: cover; background-position: center;">
+  <div class="hero-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: 2rem;">
+    <h1 style="font-size: 3rem; color: white; margin: 0 0 1rem;">The Suicide Squad: Missione Suicida</h1>
+    <p style="color: #ccc; font-size: 1.2rem; margin-bottom: 2rem; max-width: 50%;">A group of supervillains embark on a dangerous mission for redemption...</p>
+  </div>
+</div>
+
+
+<div class="video-container" style="display: flex; justify-content: space-between; padding: 2rem; background-color: black;">
+  <div class="video" style="width: 22%; margin: 0 1rem;">
+    <iframe width="100%" height="300" src="https://www.youtube.com/embed/eg5ciqQzmK0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </div>
+  <div class="video" style="width: 22%; margin: 0 1rem;">
+    <iframe width="100%" height="300" src="https://www.youtube.com/embed/o17MF9vnabg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </div>
+  <div class="video" style="width: 22%; margin: 0 1rem;">
+    <iframe width="100%" height="300" src="https://www.youtube.com/embed/f19gfOMZTtg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </div>
+</div>
+
+
+<div class="section-header" style="text-align: center; margin: 0; padding: 0; background-color: black;">
+  <h2 style="font-size: 2rem; color: #ffffff; margin: 0; background-color: black;">TV Shows</h2>
+  <hr class="divider" style="width: 50%; margin: 0 auto; border: 0; height: 0; background-color: transparent;" />
+</div>
+
+<div *ngIf="errorMessage" class="error-message" style="text-align: center; color: red; margin: 1rem;">
+  {{ errorMessage }}
+</div>
+
+<div class="show-container" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; padding: 2rem; background-color: #121212; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); margin-top: 0; margin-bottom: 0;">
+  <div *ngFor="let show of paginatedShows" class="show" style="background-color: #1b1b1b; color: #ffffff; border-radius: 8px; overflow: hidden; text-align: center; padding: 1rem; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: transform 0.3s, box-shadow 0.3s; margin: 0;">
+    <img [src]="show.image?.medium || 'https://via.placeholder.com/210x295'" [alt]="show.name" style="width: 100%; height: 295px; object-fit: cover; border-bottom: 2px solid #333;" />
+    <h3 style="font-size: 1.5rem; margin: 1rem 0 0.5rem;">{{ show.name }}</h3>
+    <p style="font-size: 1rem; margin: 0.5rem 0; color: #cccccc;">Premiered: {{ show.premiered || 'Unknown' }}</p>
+    <p style="font-size: 1rem; margin: 0.5rem 0; color: #cccccc;">Rating: {{ show.rating?.average || 'N/A' }}</p>
+  </div>
+</div>
+
+<div class="home-container" style="display: flex; justify-content: center; align-items: flex-start; gap: 30px; background-color: black; margin: 0; padding: 20px; overflow: hidden;">
+  <!-- Calendar Component -->
+  <calendar></calendar>
+
+
+  <div class="videos-container" style="display: flex; flex-wrap: wrap; gap: 20px; padding: 2rem; width: 60%; justify-content: space-between;">
+
+    <div class="video" style="flex: 1 1 45%; max-width: 48%; border-radius: 10px; overflow: hidden;">
+      <iframe src="https://www.youtube.com/embed/Ubrp7F5Uwj8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="width: 100%; height: 300px; border: none;"></iframe>
+    </div>
+
+
+    <div class="video" style="flex: 1 1 45%; max-width: 48%; border-radius: 10px; overflow: hidden;">
+      <iframe src="https://www.youtube.com/embed/WHoLjhRptxA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="width: 100%; height: 300px; border: none;"></iframe>
+    </div>
+  </div>
+</div>
+

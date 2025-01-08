@@ -1,0 +1,56 @@
+<body>
+<div class="quiz-container">
+  <!-- Izbor režima igre -->
+  <div class="mode-selection">
+    <button (click)="switchToQuiz()" [class.active]="currentMode === 'quiz'">Kviz</button>
+    <button (click)="startSnakeGame()" [class.active]="currentMode === 'snake'">Zmija</button>
+  </div>
+
+  <!-- Prikaz kviza -->
+  <div *ngIf="currentMode === 'quiz'">
+    <div *ngIf="!showResults; else resultsTemplate">
+      <h2>Pitanje {{ currentQuestionIndex + 1 }} od {{ questions.length }}</h2>
+      <p class="question">{{ questions[currentQuestionIndex].question }}</p>
+      <div class="answers">
+        <button
+          *ngFor="let answer of questions[currentQuestionIndex].answers"
+          (click)="checkAnswer(answer)"
+          [class.selected]="selectedAnswer === answer"
+          [disabled]="selectedAnswer !== null"
+        >
+          {{ answer }}
+        </button>
+      </div>
+      <div *ngIf="selectedAnswer !== null">
+        <p *ngIf="selectedAnswer === questions[currentQuestionIndex].correctAnswer">
+          Tačno! ✅
+        </p>
+        <p *ngIf="selectedAnswer !== questions[currentQuestionIndex].correctAnswer">
+          Netočno! ❌ Tačan odgovor je: {{ questions[currentQuestionIndex].correctAnswer }}
+        </p>
+        <button (click)="nextQuestion()">Sledeće pitanje</button>
+      </div>
+    </div>
+    <ng-template #resultsTemplate>
+      <div class="results">
+        <h2>Rezultati kviza</h2>
+        <p>Osvojili ste {{ score }} od {{ questions.length }} poena.</p>
+        <button (click)="restartQuiz()">Ponovo pokreni kviz</button>
+      </div>
+    </ng-template>
+  </div>
+
+  <!-- Prikaz zmije -->
+  <div *ngIf="currentMode === 'snake'" class="snake-container">
+    <div class="grid">
+      <div
+        *ngFor="let cell of grid; let i = index"
+        [class.snake]="snake.includes(i)"
+        [class.food]="food === i"
+      ></div>
+    </div>
+    <p *ngIf="gameOver" class="game-over">Kraj igre! Tvoj rezultat: {{ snakeScore }}</p>
+  </div>
+</div>
+</body>
+

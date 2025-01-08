@@ -1,0 +1,177 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url('https://hcdevilsadvocate.com/wp-content/uploads/2019/01/netflix-background-9.jpg') center center/cover no-repeat fixed;
+}
+
+.login-container {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 30px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.4));
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(8px);
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: red;
+  margin-bottom: 25px;
+  font-family: 'Poppins', sans-serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Error Messages */
+.errors {
+  background: rgba(255, 77, 77, 0.1);
+  color: #e63946;
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 4px solid #e63946;
+  margin-bottom: 20px;
+}
+
+.errors ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.errors li {
+  font-size: 0.9rem;
+}
+
+/* Form Group */
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+input {
+  padding: 12px;
+  font-size: 1rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  background: rgba(245, 245, 245, 0.8);
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  border-color: #4CAF50;
+  box-shadow: 0 0 8px rgba(76, 175, 80, 0.5);
+}
+
+input.ng-invalid.ng-touched {
+  border-color: #e74c3c;
+  box-shadow: 0 0 8px rgba(231, 76, 60, 0.5);
+}
+
+input::placeholder {
+  color: #aaa;
+}
+
+/* Submit Button */
+button[type="submit"] {
+  padding: 12px;
+  font-size: 1.1rem;
+  background: red;
+  color: black;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button[type="submit"]:hover {
+  background: linear-gradient(90deg, #45a049, #4CAF50);
+  transform: scale(1.05);
+}
+
+button[type="submit"]:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Footer Links */
+.form-footer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.form-footer a {
+  font-size: 0.9rem;
+  color: blue;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.form-footer a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .login-container {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  input, button {
+    font-size: 1rem;
+  }
+}
+
+/* Additional Responsive Enhancements */
+@media (max-width: 480px) {
+  .login-container {
+    width: 90%;
+    margin: 20px auto;
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+
+  input {
+    padding: 10px;
+  }
+
+  button[type="submit"] {
+    font-size: 1rem;
+  }
+}

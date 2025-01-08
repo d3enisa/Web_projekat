@@ -1,0 +1,264 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: black;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+.hero-section {
+  position: relative;
+  height: 80vh;
+  background-image: url('https://cdn.blogo.it/kcjqL-Z-3zV4voAhiw9VesOpO1k=/1280x720/smart/https://www.blogo.it/app/uploads/sites/3/2024/03/stasera-in-tv-the-suicide-squad-missione-suicida-di-james-gunn-su-italia-1-1.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem;
+}
+
+.hero-overlay h1 {
+  font-size: 3rem;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.hero-overlay p {
+  color: #ccc;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  max-width: 50%;
+}
+
+.video-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 2rem;
+}
+
+.video {
+  width: 22%;
+}
+
+.video iframe {
+  width: 100%;
+  height: 300px;
+  border: none;
+}
+
+.section-header {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.section-header h2 {
+  font-size: 2rem;
+  color: #ffffff;
+}
+
+.section-header .divider {
+  width: 50%;
+  height: 2px;
+  margin: 1rem auto;
+  background-color: #333;
+}
+
+.show-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  padding: 2rem;
+  background-color: #121212;
+}
+
+.show {
+  background-color: #1b1b1b;
+  color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.show:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.show img {
+  width: 100%;
+  height: 295px;
+  object-fit: cover;
+  border-bottom: 2px solid #333;
+  transition: transform 0.3s;
+}
+
+.show:hover img {
+  transform: scale(1.05);
+}
+
+.show h3 {
+  font-size: 1.5rem;
+  margin: 1rem 0 0.5rem;
+}
+
+.show p {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+  color: #cccccc;
+}
+
+.home-container {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.rating {
+  font-size: 1.5rem;
+  color: #cccccc; /* Siva boja za prazne zvjezdice */
+}
+
+.rating .filled {
+  color: #ffcc00;
+}
+
+
+
+
+@media (max-width: 1024px) {
+  .hero-overlay h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-overlay p {
+    font-size: 1rem;
+    max-width: 70%;
+  }
+
+  .video {
+    width: 48%;
+  }
+
+  .video-container {
+    padding: 1.5rem;
+  }
+
+  .show-container {
+    padding: 1.5rem;
+  }
+
+  .show {
+    padding: 1rem;
+  }
+
+  .section-header h2 {
+    font-size: 1.8rem;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .hero-section {
+    height: 60vh;
+  }
+
+  .hero-overlay h1 {
+    font-size: 2rem;
+  }
+
+  .hero-overlay p {
+    font-size: 0.9rem;
+    max-width: 80%;
+  }
+
+  .video {
+    width: 100%;
+  }
+
+  .video-container {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .section-header h2 {
+    font-size: 1.6rem;
+  }
+
+  .show-container {
+    padding: 1rem;
+  }
+
+  .show {
+    padding: 1rem;
+  }
+
+  .show h3 {
+    font-size: 1.2rem;
+  }
+
+  .show p {
+    font-size: 0.9rem;
+  }
+
+  .rating {
+    font-size: 1.2rem;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .hero-overlay h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-overlay p {
+    font-size: 0.8rem;
+    max-width: 90%;
+  }
+
+  .video {
+    width: 100%;
+  }
+
+  .show-container {
+    padding: 0.5rem;
+  }
+
+  .show {
+    padding: 0.8rem;
+  }
+
+  .show h3 {
+    font-size: 1rem;
+  }
+
+  .show p {
+    font-size: 0.8rem;
+  }
+
+  .rating {
+    font-size: 1rem;
+  }
+}
+

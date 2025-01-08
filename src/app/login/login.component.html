@@ -1,0 +1,23 @@
+<div class="login-container">
+  <h1>Login</h1>
+  <div *ngIf="errors.length > 0" class="errors">
+    <ul>
+      <li *ngFor="let error of errors">{{ error }}</li>
+    </ul>
+  </div>
+  <form (ngSubmit)="login()">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input [(ngModel)]="username" type="text" id="username" name="username" placeholder="Enter your username" required>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input [(ngModel)]="password" type="password" id="password" name="password" placeholder="Enter your password" required>
+    </div>
+    <button type="submit" class="login-button">Login</button>
+    <div class="form-footer">
+      <a href="/register ">You aren't registered?</a>
+      <br>
+    </div>
+  </form>
+</div>

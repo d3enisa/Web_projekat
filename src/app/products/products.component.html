@@ -1,0 +1,57 @@
+<body>
+<h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 30px; color: white; font-weight: bold;">Our Cinema Menu</h2>
+
+<div class="products" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; padding: 20px; justify-items: center;">
+  <div class="product-card" *ngFor="let product of products"
+       style="background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer; overflow: hidden; max-width: 320px;">
+
+    <img [src]="product.image" [alt]="product.title"
+         style="width: 100%; height: 200px; object-fit: cover; border-radius: 10px; margin-bottom: 15px; transition: transform 0.3s ease;">
+
+    <h3 style="font-size: 1.4rem; color: #333; margin: 10px 0; font-weight: 600;">{{ product.title }}</h3>
+    <p style="color: #555; font-size: 1rem; margin-bottom: 15px;">{{ product.description }}</p>
+    <p style="font-size: 1.2rem; color: #333; font-weight: bold;">Price: ${{ product.price }}</p>
+
+    <button (click)="addToCart(product)"
+            style="background-color: #ff6f61; color: white; border: none; padding: 12px 25px; border-radius: 5px; cursor: pointer; font-size: 1.1rem; margin-top: 15px; transition: background-color 0.3s ease;">
+      Add to Cart
+    </button>
+  </div>
+</div>
+</body>
+
+<!-- Cart Icon and Dropdown -->
+<div class="cart-icon" style="position: fixed; top: 20px; right: 20px; background-color: #fff; border-radius: 50%; padding: 15px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); cursor: pointer; z-index: 100; transition: transform 0.3s ease;">
+  <button (click)="toggleCart()" style="background-color: transparent; border: none; font-size: 1.8rem; color: #333; display: flex; align-items: center;">
+    🛒 ({{ getItemCount() }})
+  </button>
+  <div class="cart-dropdown" *ngIf="isCartVisible"
+       style="position: absolute; top: 50px; right: 0; background: #fff; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); border-radius: 8px; padding: 20px; width: 300px; max-height: 400px; overflow-y: auto;">
+    <h3 style="font-size: 1.4rem; color: #333; margin-bottom: 20px;">Your Cart</h3>
+
+    <div *ngIf="cart.length === 0" class="cart-empty" style="text-align: center; font-size: 1.2rem; color: #777;">
+      <p>Your cart is empty.</p>
+    </div>
+
+    <div *ngFor="let item of cart" class="cart-item" style="border-bottom: 1px solid #eee; padding: 10px 0; margin-bottom: 15px;">
+      <h4 style="font-size: 1.2rem; color: #333; font-weight: 600;">{{ item.title }}</h4>
+      <p style="font-size: 1rem; color: #555;">Price: ${{ item.price }}</p>
+      <p style="font-size: 1rem; color: #555;">Quantity: {{ item.quantity }}</p>
+
+      <div class="cart-actions" style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
+        <button (click)="addToCart(item)"
+                style="background-color: #28a745; color: white; border: none; padding: 5px 12px; border-radius: 5px; cursor: pointer; font-size: 1rem;">
+          +
+        </button>
+        <button (click)="removeFromCart(item.id)"
+                style="background-color: #dc3545; color: white; border: none; padding: 5px 12px; border-radius: 5px; cursor: pointer; font-size: 1rem;">
+          -
+        </button>
+      </div>
+    </div>
+
+    <div *ngIf="cart.length > 0" class="cart-total" style="text-align: right; font-size: 1.3rem; margin-top: 15px; font-weight: bold; color: #333;">
+      <h4>Total: ${{ getTotal() }}</h4>
+    </div>
+  </div>
+</div>

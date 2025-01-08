@@ -1,0 +1,251 @@
+ .about-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(270deg, #000428, #004e92, #00172d);
+  background-size: 400% 400%;
+  animation: gradient-animation 5s ease infinite;
+  overflow: hidden;
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+  position: relative;
+}
+
+.about-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(2px 2px at 50% 50%, rgba(255, 255, 255, 0.8), transparent),
+              radial-gradient(1.5px 1.5px at 30% 20%, rgba(255, 255, 255, 0.6), transparent),
+              radial-gradient(1px 1px at 80% 70%, rgba(255, 255, 255, 0.4), transparent);
+  background-size: 100px 100px, 150px 150px, 200px 200px;
+  animation: stars-twinkle 5s linear infinite;
+}
+
+.text-content {
+  text-align: center;
+  padding: 20px;
+  max-width: 700px;
+  z-index: 1;
+  margin: 0 auto;
+  position: relative;
+}
+
+.title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #fff;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00;
+}
+
+.subtitle {
+  font-size: clamp(1.2rem, 4vw, 1.5rem);
+  margin-bottom: 15px;
+  color: #f0f0f0;
+}
+
+.description {
+  font-size: 1rem;
+  color: #d1d1d1;
+  line-height: 1.8;
+  max-width: 90%;
+  margin: 0 auto;
+  opacity: 0.85;
+}
+
+.wow-content {
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  z-index: 2;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  padding: 20px;
+  max-width: 90%;
+  margin: 20px auto;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.wow-content:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.wow-content h2 {
+  font-size: clamp(2rem, 6vw, 2.4rem);
+  font-weight: bold;
+  margin-bottom: 1.2rem;
+  color: #fff;
+  text-transform: uppercase;
+  text-shadow: 0 6px 12px rgba(255, 204, 0, 0.6);
+}
+
+.wow-content p {
+  font-size: clamp(1.1rem, 3.5vw, 1.3rem);
+  line-height: 1.8;
+  margin-bottom: 1.8rem;
+  color: #f0f0f0;
+}
+
+.wow-content a {
+  display: inline-block;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #fff;
+  background: #ff9800;
+  border-radius: 5px;
+  text-transform: uppercase;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+  padding: 10px 20px;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.wow-content a:hover {
+  background: #ffb300;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(255, 204, 0, 0.5);
+}
+
+.wow-content a:focus {
+  outline: none;
+  box-shadow: 0 0 8px rgba(255, 204, 0, 0.7);
+}
+
+.tarot-container {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  position: relative;
+  z-index: 1;
+}
+
+.tarot-card {
+  width: 140px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: float 4s ease-in-out infinite, rotate 6s linear infinite;
+}
+
+.tarot-card:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+}
+
+.tarot-card:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.tarot-card:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.tarot-card:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-10px) scale(1.05);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes stars-twinkle {
+  0%, 100% {
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-container {
+    padding: 10px;
+  }
+
+  .wow-content {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+  }
+
+  .tarot-card {
+    width: 120px;
+    height: 200px;
+  }
+
+  .wow-content p {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .wow-content h2 {
+    font-size: 2rem;
+  }
+
+  .wow-content p {
+    font-size: 1rem;
+  }
+
+  .tarot-card {
+    width: 100px;
+    height: 180px;
+  }
+
+  .wow-content a {
+    font-size: 1.1rem;
+  }
+}

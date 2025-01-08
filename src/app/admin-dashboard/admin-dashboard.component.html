@@ -1,0 +1,124 @@
+<body>
+<div class="container">
+  <h1>Admin Dashboard</h1>
+
+
+  <div *ngIf="errors.length > 0" class="error-messages">
+    <ul>
+      <li *ngFor="let error of errors">{{ error }}</li>
+    </ul>
+  </div>
+
+
+  <form (ngSubmit)="onSubmit()">
+    <h2>{{ isEditMode ? 'Uredi korisnika' : 'Dodaj korisnika' }}</h2>
+
+    <div class="form-group" *ngIf="isEditMode">
+      <label for="id">ID:</label>
+      <input
+        type="number"
+        id="id"
+        [(ngModel)]="user.id"
+        name="id"
+      />
+    </div>
+
+
+    <div class="form-group">
+      <label for="ime">Ime:</label>
+      <input
+        type="text"
+        id="ime"
+        [(ngModel)]="user.ime"
+        name="ime"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="prezime">Prezime:</label>
+      <input
+        type="text"
+        id="prezime"
+        [(ngModel)]="user.prezime"
+        name="prezime"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="korisnicko_ime">Korisničko ime:</label>
+      <input
+        type="text"
+        id="korisnicko_ime"
+        [(ngModel)]="user.korisnicko_ime"
+        name="korisnicko_ime"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input
+        type="email"
+        id="email"
+        [(ngModel)]="user.email"
+        name="email"
+        required
+      />
+    </div>
+    <div class="form-group" *ngIf="!isEditMode">
+      <label for="sifra">Šifra:</label>
+      <input
+        type="password"
+        id="sifra"
+        [(ngModel)]="user.sifra"
+        name="sifra"
+        required
+      />
+    </div>
+
+    <button type="submit" class="btn">
+      {{ isEditMode ? 'Ažuriraj' : 'Dodaj' }}
+    </button>
+    <button
+      type="button"
+      class="btn btn-secondary"
+      (click)="resetForm()"
+      *ngIf="isEditMode"
+    >
+      Otkaži
+    </button>
+  </form>
+
+  <!-- Tabela korisnika -->
+  <h2>Lista korisnika</h2>
+  <table>
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Ime</th>
+      <th>Prezime</th>
+      <th>Korisničko ime</th>
+      <th>Email</th>
+      <th>Akcije</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.id }}</td>
+      <td>{{ user.ime }}</td>
+      <td>{{ user.prezime }}</td>
+      <td>{{ user.korisnicko_ime }}</td>
+      <td>{{ user.email }}</td>
+      <td>
+        <button class="btn btn-edit" (click)="editUser(user)">Uredi</button>
+        <button
+          class="btn btn-delete"
+          (click)="deleteUser(user.id)"
+        >
+          Obriši
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>

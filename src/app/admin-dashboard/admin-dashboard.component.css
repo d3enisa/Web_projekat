@@ -1,0 +1,181 @@
+.container {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #0b0c10;
+  border: 1px solid #1f2833;
+  border-radius: 15px;
+  box-shadow: 0 0 20px #45a29e;
+  color: #c5c6c7;
+  font-family: 'Orbitron', sans-serif;
+}
+
+h1,
+h2 {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #66fcf1;
+  text-shadow: 0 0 10px #45a29e, 0 0 20px #66fcf1;
+}
+
+.error-messages {
+  color: #ff4d4d;
+  background-color: rgba(255, 77, 77, 0.1);
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px #ff4d4d;
+}
+
+
+form {
+  background: rgba(20, 20, 20, 0.9);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #66fcf1;
+  margin-bottom: 30px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  color: #c5c6c7;
+  margin-bottom: 8px;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background: #1f2833;
+  color: #c5c6c7;
+  font-size: 14px;
+  box-shadow: inset 0 0 10px #45a29e;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  background: #0b0c10;
+  box-shadow: 0 0 10px #66fcf1;
+}
+
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+  color: #0b0c10;
+  background: linear-gradient(135deg, #66fcf1, #45a29e);
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px #66fcf1, 0 0 30px #45a29e;
+}
+
+.btn-secondary {
+  background: linear-gradient(135deg, #1f2833, #c5c6c7);
+  color: #66fcf1;
+}
+
+.btn-delete {
+  background: linear-gradient(135deg, #ff4d4d, #ff1e1e);
+  color: #ffffff;
+}
+
+
+table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 8px;
+  background: rgba(15, 15, 15, 0.9);
+  box-shadow: 0 0 15px #45a29e;
+}
+
+table thead {
+  background: #1f2833;
+}
+
+table th,
+table td {
+  padding: 15px;
+  text-align: left;
+  color: #c5c6c7;
+  font-size: 14px;
+}
+
+table th {
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+table tbody tr {
+  transition: all 0.3s ease;
+}
+
+table tbody tr:hover {
+  background: rgba(69, 162, 158, 0.2);
+}
+
+table td {
+  border-top: 1px solid #1f2833;
+}
+
+
+button {
+  animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 5px #45a29e;
+  }
+  to {
+    box-shadow: 0 0 15px #66fcf1;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+
+  table th,
+  table td {
+    font-size: 12px;
+    padding: 10px;
+  }
+
+  button {
+    font-size: 12px;
+    padding: 8px 15px;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Orbitron', sans-serif;
+  color: #c5c6c7;
+  background: #0b0c10;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+
+

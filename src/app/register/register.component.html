@@ -1,0 +1,118 @@
+<body>
+<div class="video-background">
+  <video autoplay muted loop id="background-video">
+    <source src="https://videos.pexels.com/video-files/2759484/2759484-uhd_2560_1440_30fps.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+<div class="registration-container">
+  <form class="registration-form" (ngSubmit)="register()" #registerForm="ngForm">
+    <h2>Register</h2>
+
+    <div class="form-group">
+      <label for="first-name">First Name</label>
+      <input
+        type="text"
+        id="first-name"
+        name="firstName"
+        placeholder="Enter your first name"
+        required
+        [(ngModel)]="firstName"
+        #firstNameInput="ngModel"
+      />
+      <div *ngIf="firstNameInput.invalid && firstNameInput.touched" class="error">
+        First name is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="last-name">Last Name</label>
+      <input
+        type="text"
+        id="last-name"
+        name="lastName"
+        placeholder="Enter your last name"
+        required
+        [(ngModel)]="lastName"
+        #lastNameInput="ngModel"
+      />
+      <div *ngIf="lastNameInput.invalid && lastNameInput.touched" class="error">
+        Last name is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input
+        type="text"
+        id="username"
+        name="username"
+        placeholder="Choose a username"
+        required
+        [(ngModel)]="username"
+        #usernameInput="ngModel"
+      />
+      <div *ngIf="usernameInput.invalid && usernameInput.touched" class="error">
+        Username is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="Enter your email"
+        required
+        [(ngModel)]="email"
+        #emailInput="ngModel"
+      />
+      <div *ngIf="emailInput.invalid && emailInput.touched" class="error">
+        Valid email is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        placeholder="Enter a password"
+        required
+        [(ngModel)]="password"
+        #passwordInput="ngModel"
+      />
+      <div *ngIf="passwordInput.invalid && passwordInput.touched" class="error">
+        Password is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="confirm-password">Confirm Password</label>
+      <input
+        type="password"
+        id="confirm-password"
+        name="confirmPassword"
+        placeholder="Confirm your password"
+        required
+        [(ngModel)]="confirmPassword"
+        #confirmPasswordInput="ngModel"
+      />
+      <div *ngIf="confirmPassword !== password && confirmPasswordInput.touched" class="error">
+        Passwords do not match.
+      </div>
+    </div>
+
+    <div *ngIf="errors.length > 0" class="error-container">
+      <ul>
+        <li *ngFor="let error of errors">{{ error }}</li>
+      </ul>
+    </div>
+
+    <button type="submit" [disabled]="registerForm.invalid">Register</button>
+  </form>
+</div>
+</body>

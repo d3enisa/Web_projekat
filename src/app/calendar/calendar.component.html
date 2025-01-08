@@ -1,0 +1,36 @@
+<div class="calendar-container">
+  <div class="calendar-header">
+    <button (click)="goToPreviousMonth()">«</button>
+    <span>{{ firstDayOfMonth().toLocaleString({ month: 'long', year: 'numeric' }) }}</span>
+    <button (click)="goToNextMonth()">»</button>
+  </div>
+  <div class="calendar-days">
+    <div *ngFor="let weekDay of weekDays()" class="calendar-weekday">
+      {{ weekDay }}
+    </div>
+    <div
+      *ngFor="let day of daysOfMonth()"
+      [ngClass]="{
+        'calendar-day': true,
+        'calendar-day-today': day.toISODate() === today().toISODate(),
+        'calendar-day-inactive': day.month !== firstDayOfMonth().month
+      }"
+      (click)="activeDay.set(day)"
+    >
+      {{ day.day }}
+    </div>
+  </div>
+  <div class="calendar-events" *ngIf="activeDayEvents().length > 0">
+    <h3>Events on {{ activeDay()?.toLocaleString(DATE_MED) }}</h3>
+    <ul>
+      <li *ngFor="let event of activeDayEvents()">{{ event }}</li>
+    </ul>
+  </div>
+  <div class="calendar-no-events" *ngIf="activeDayEvents().length === 0">
+    <p>No events for this day.</p>
+  </div>
+</div>
+
+
+
+

@@ -1,0 +1,225 @@
+.product-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(145deg, #2a2a2a, #1e1e1e);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(255, 255, 255, 0.1) inset;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  overflow: hidden;
+  text-align: center;
+  color: #fff;
+}
+
+.product-card:hover {
+  transform: scale(1.1) rotateX(10deg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 -3px 20px rgba(255, 255, 255, 0.2) inset;
+  background: linear-gradient(145deg, #3b3b3b, #2c2c2c);
+  z-index: 2;
+}
+
+.product-card:hover::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 80%);
+  animation: pulse 2s infinite;
+  z-index: -1;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+}
+
+.product-card h3,
+.product-card p {
+  font-family: 'Finger Paint', cursive;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.product-card:hover h3 {
+  color: #ffcc00;
+  text-shadow: 0 4px 8px rgba(255, 204, 0, 0.8);
+}
+
+.product-card:hover p {
+  color: #8fd3f4;
+  text-shadow: 0 2px 6px rgba(143, 211, 244, 0.8);
+}
+
+.product-card {
+  animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) rotateX(-10deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotateX(0);
+  }
+}
+
+.product-card:hover {
+  animation: hoverEffect 0.5s ease-in-out;
+}
+
+@keyframes hoverEffect {
+  0% {
+    transform: scale(1.05) rotateX(5deg);
+  }
+  50% {
+    transform: scale(1.1) rotateX(10deg);
+  }
+  100% {
+    transform: scale(1.05) rotateX(5deg);
+  }
+}
+
+.product-card button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background: linear-gradient(145deg, #ff7300, #ff8c42);
+  color: #fff;
+  font-family: 'Finger Paint', cursive;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card button:hover {
+  background: linear-gradient(145deg, #ff8c42, #ff7300);
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(255, 115, 0, 0.5);
+  cursor: pointer;
+}
+
+.video-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  background: #000;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.video-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 20%, transparent 60%);
+  animation: stars 5s infinite linear;
+  z-index: -1;
+}
+
+iframe {
+  width: 100%;
+  max-width: 1200px;
+  height: 500px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.5s ease;
+  margin: 0;
+}
+
+.video-container iframe {
+  animation: fadeInVideo 1s ease-out;
+}
+
+@keyframes fadeInVideo {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.video-container + .product-card-container {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.rating {
+  font-size: 1.5rem;
+  color: #cccccc;
+}
+
+
+
+
+@media (max-width: 768px) {
+  .product-card {
+    width: 90%;
+    margin: 20px auto;
+    padding: 15px;
+  }
+
+  .video-container iframe {
+    height: 400px;
+  }
+
+  .product-card button {
+    font-size: 1rem;
+    padding: 8px 16px;
+  }
+
+  .rating {
+    font-size: 1.3rem;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .product-card {
+    width: 95%;
+    margin: 15px auto;
+    padding: 10px;
+  }
+
+  .video-container iframe {
+    height: 350px;
+  }
+
+  .product-card button {
+    font-size: 0.9rem;
+    padding: 7px 14px;
+  }
+
+  .rating {
+    font-size: 1.2rem;
+  }
+}
+
+
+
